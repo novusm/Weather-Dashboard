@@ -1,0 +1,73 @@
+/* Reset some default styles */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Style the header */
+  .weather-header {
+    background-color: #343a40; /* Dark background color */
+  }
+  
+  .weather-header h1 {
+    font-size: 2rem;
+    margin-bottom: 0;
+    padding: 10px;
+  }
+  
+  /* Style the form section */
+  .container-fluid {
+    padding: 20px;
+  }
+  
+  #form-heading {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .weather-search {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+  }
+  
+  .search-button {
+    background-color: #007bff; /* Primary button color */
+    color: #fff;
+    border: none;
+  }
+  
+  /* Style the history section */
+  .list-group {
+    margin-top: 20px;
+  }
+  
+  .list-group-item {
+    cursor: pointer;
+  }
+  
+  /* Style the current weather section */
+  #today {
+    background-color: #f8f9fa; /* Light background color */
+    padding: 20px;
+    border-radius: 4px;
+  }
+  
+  #current-city {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  #current-icon {
+    max-width: 100px;
+    height: auto;
+    margin-top: 10px;
+  }
+  
+  #current-temperature,
+  #current-humidity,
+  #current-wind-speed {
+    margin-top: 10px;
+  }
+  
