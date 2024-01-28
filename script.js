@@ -27,7 +27,8 @@ function displayWeatherData(data) {
   const cityName = data.city.name;
   const currentDate = new Date();
   const currentIconUrl = `https://openweathermap.org/img/w/${data.list[0].weather[0].icon}.png`;
-  const currentTemperature = data.list[0].main.temp;
+  const currentTemperatureKelvin = data.list[0].main.temp;
+  const currentTemperatureCelsius = (currentTemperatureKelvin - 273.15).toFixed(2); // Convert Kelvin to Celsius and round to 2 decimal places
   const currentHumidity = data.list[0].main.humidity;
   const currentWindSpeed = data.list[0].wind.speed;
 
@@ -35,7 +36,7 @@ function displayWeatherData(data) {
   document.getElementById('current-city').textContent = cityName;
   document.getElementById('current-date').textContent = currentDate.toDateString();
   document.getElementById('current-icon').src = currentIconUrl;
-  document.getElementById('current-temperature').textContent = `Temperature: ${currentTemperature}°C`;
+  document.getElementById('current-temperature').textContent = `Temperature: ${currentTemperatureCelsius}°C`;
   document.getElementById('current-humidity').textContent = `Humidity: ${currentHumidity}%`;
   document.getElementById('current-wind-speed').textContent = `Wind Speed: ${currentWindSpeed} m/s`;
 }
@@ -116,12 +117,14 @@ function displayForecast(data) {
   forecastElement.innerHTML = '';
 
   // Initialize the current date to the date of the first forecast
-  let currentDate = new Date(forecastData[0].dt_txt);
+  let currentDate = new Date();
+  currentDate.setDate(currentDate.getDate() + 1); // Start from the next day
 
   // Loop through the forecast data and create cards for each day
   forecastData.forEach((forecastItem) => {
     const iconUrl = `https://openweathermap.org/img/w/${forecastItem.weather[0].icon}.png`;
-    const temperature = forecastItem.main.temp;
+    const temperatureKelvin = forecastItem.main.temp;
+    const temperatureCelsius = (temperatureKelvin - 273.15).toFixed(2); // Convert Kelvin to Celsius
     const humidity = forecastItem.main.humidity;
 
     // Create a Bootstrap card for each day's forecast
@@ -134,7 +137,7 @@ function displayForecast(data) {
         <div class="card-body">
           <h5 class="card-title">${currentDate.toDateString()}</h5>
           <img src="${iconUrl}" alt="Weather Icon" class="card-img-top">
-          <p class="card-text">Temperature: ${temperature}°C</p>
+          <p class="card-text">Temperature: ${temperatureCelsius}°C</p>
           <p class="card-text">Humidity: ${humidity}%</p>
         </div>
       </div>
@@ -146,7 +149,6 @@ function displayForecast(data) {
     currentDate.setDate(currentDate.getDate() + 1);
   });
 }
-
 
 
 // Event listener for the form submission

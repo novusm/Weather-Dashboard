@@ -31,6 +31,10 @@ body, h1, h2, p {
     border: 1px solid #ced4da;
     border-radius: 4px;
   }
+
+  .btn-space {
+    margin-top: 10px; /* You can adjust the value as needed */
+  }
   
   .search-button {
     background-color: #007bff; /* Primary button color */
