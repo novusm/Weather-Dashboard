@@ -73,7 +73,7 @@ function displaySearchHistory() {
     listItem.classList.add('list-group-item');
     listItem.textContent = city;
 
-    // Add a click event listener to each item to perform a new search
+    // click event listener to each item to perform a new search
     listItem.addEventListener('click', () => {
       // Call fetchWeatherData with the selected city
       fetchWeatherData(city);
@@ -85,7 +85,7 @@ function displaySearchHistory() {
 
 // Function to make an API request to OpenWeather and display default weather data
 function displayDefaultWeather() {
-  const defaultCity = 'London'; // Set your default city here
+  const defaultCity = 'London';
   fetchWeatherData(defaultCity);
 }
 
